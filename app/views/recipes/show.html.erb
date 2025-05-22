@@ -1,0 +1,13 @@
+<h1><%= @recipe.title %></h1>
+
+<img src="<%= URI.decode_uri_component(@recipe.image.split("?url=").last) %>" height=480 alt="<%= @recipe.title %>" />
+
+<h2>Ingredients</h2>
+
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to index", recipes_path %>
