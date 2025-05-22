@@ -23,4 +23,3 @@ test:
 
 production:
   <<: *default
-  database: sample_rails_with_recipes_production
