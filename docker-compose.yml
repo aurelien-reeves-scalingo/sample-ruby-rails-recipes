@@ -14,3 +14,18 @@ services:
       BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/3.2.0"
       BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
     command: bundle exec rails server -b 0.0.0.0 -p 3000 -e development
+
+  db:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    networks:
+      - postgres-network
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+
+networks:
+  postgres-network:
+    driver: bridge
