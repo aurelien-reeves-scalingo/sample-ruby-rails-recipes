@@ -1,5 +1,10 @@
 <h1>Listing Recipes</h1>
 
+<form action="/recipes" method="get">
+  <input type="text" name="search" placeholder="Search recipes..." value="<%= @search_term %>" />
+  <input type="submit" />
+</form>
+
 <table>
   <thead>
     <tr>
@@ -17,4 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
